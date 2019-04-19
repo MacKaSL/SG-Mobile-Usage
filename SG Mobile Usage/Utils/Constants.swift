@@ -12,15 +12,25 @@ struct Constants {
     
     static let apiBaseURL = "https://data.gov.sg"
     
-    struct CodingKey {
-        static let resourceID = "resource_id"
-        static let limit = "limit"
-        static let offset = "offset"
+    struct JSONKey {
+        static let resourceId = "resource_id"
+        
         static let result = "result"
         static let records = "records"
-        static let id = "_id"
+        
         static let volume = "volume_of_mobile_data"
         static let quarter = "quarter"
+        static let id = "_id"
+        
+        static let limit = "limit"
+        static let offset = "offset"
+    }
+    
+    struct ErrorCode {
+        static let domain = "com.sgmobileusage.networkerror"
+        static let noResponse = 404
+        static let parsingFailed = 500
+        static let sessionFailed = 505
     }
     
 }
@@ -28,6 +38,11 @@ struct Constants {
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
+}
+
+enum DataUsageError: Error {
+    case invalidJSON
+    case invalidNumberOfQuaters
 }
 
 struct AlertMessage {

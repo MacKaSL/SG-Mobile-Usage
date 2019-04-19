@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01EAFE5222682B1300F82B01 /* HMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */; };
+		01EAFE5322682B1300F82B01 /* HMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */; };
+		01EAFE5422682B1300F82B01 /* HMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */; };
+		01EAFE562268337300F82B01 /* DataUsageResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */; };
+		01EAFE572268337300F82B01 /* DataUsageResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */; };
+		01EAFE582268337300F82B01 /* DataUsageResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */; };
+		01EAFE5B22698C9C00F82B01 /* QuarterUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */; };
+		01EAFE5C22698C9C00F82B01 /* QuarterUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */; };
+		01EAFE5D22698C9C00F82B01 /* QuarterUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */; };
+		01EAFE5F22698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
+		01EAFE6022698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
+		01EAFE6122698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
 		01F2A4E82267A6840003EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2A4E72267A6840003EC47 /* AppDelegate.swift */; };
 		01F2A4EA2267A6840003EC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2A4E92267A6840003EC47 /* ViewController.swift */; };
 		01F2A4ED2267A6840003EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F2A4EB2267A6840003EC47 /* Main.storyboard */; };
@@ -49,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMNetworkManager.swift; sourceTree = "<group>"; };
+		01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsageResponseHandler.swift; sourceTree = "<group>"; };
+		01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterUsage.swift; sourceTree = "<group>"; };
+		01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnualDataUsageRecord.swift; sourceTree = "<group>"; };
 		01F2A4E42267A6840003EC47 /* SG Mobile Usage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SG Mobile Usage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F2A4E72267A6840003EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F2A4E92267A6840003EC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01EAFE5922698C5400F82B01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */,
+				01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */,
+				01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		01F2A4DB2267A6840003EC47 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +158,7 @@
 			children = (
 				01F2A4E72267A6840003EC47 /* AppDelegate.swift */,
 				01F2A4E92267A6840003EC47 /* ViewController.swift */,
+				01EAFE5922698C5400F82B01 /* Models */,
 				01F2A5262267AB350003EC47 /* Utils */,
 				01F2A5182267A6E70003EC47 /* Networking */,
 				01F2A4EB2267A6840003EC47 /* Main.storyboard */,
@@ -164,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				01F2A5192267A6E70003EC47 /* HMNetworking.swift */,
+				01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -473,11 +501,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EAFE5F22698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */,
 				01F2A4EA2267A6840003EC47 /* ViewController.swift in Sources */,
 				01F2A51A2267A6E70003EC47 /* Extensions.swift in Sources */,
+				01EAFE5222682B1300F82B01 /* HMNetworkManager.swift in Sources */,
 				01F2A5232267A6E70003EC47 /* HMNetworking.swift in Sources */,
+				01EAFE5B22698C9C00F82B01 /* QuarterUsage.swift in Sources */,
 				01F2A5202267A6E70003EC47 /* Helper.swift in Sources */,
 				01F2A4E82267A6840003EC47 /* AppDelegate.swift in Sources */,
+				01EAFE562268337300F82B01 /* DataUsageResponseHandler.swift in Sources */,
 				01F2A51D2267A6E70003EC47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,9 +519,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F2A5242267A6E70003EC47 /* HMNetworking.swift in Sources */,
+				01EAFE5322682B1300F82B01 /* HMNetworkManager.swift in Sources */,
+				01EAFE572268337300F82B01 /* DataUsageResponseHandler.swift in Sources */,
 				01F2A4FD2267A6860003EC47 /* SG_Mobile_UsageTests.swift in Sources */,
+				01EAFE6022698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */,
 				01F2A51B2267A6E70003EC47 /* Extensions.swift in Sources */,
 				01F2A51E2267A6E70003EC47 /* Constants.swift in Sources */,
+				01EAFE5C22698C9C00F82B01 /* QuarterUsage.swift in Sources */,
 				01F2A5212267A6E70003EC47 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,9 +535,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F2A5252267A6E70003EC47 /* HMNetworking.swift in Sources */,
+				01EAFE5422682B1300F82B01 /* HMNetworkManager.swift in Sources */,
+				01EAFE582268337300F82B01 /* DataUsageResponseHandler.swift in Sources */,
 				01F2A5082267A6860003EC47 /* SG_Mobile_UsageUITests.swift in Sources */,
+				01EAFE6122698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */,
 				01F2A51C2267A6E70003EC47 /* Extensions.swift in Sources */,
 				01F2A51F2267A6E70003EC47 /* Constants.swift in Sources */,
+				01EAFE5D22698C9C00F82B01 /* QuarterUsage.swift in Sources */,
 				01F2A5222267A6E70003EC47 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
