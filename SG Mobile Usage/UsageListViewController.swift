@@ -20,15 +20,16 @@ class UsageListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Mobile Usage Details...")
         self.tableView.refreshControl?.addTarget(self, action: #selector(UsageListViewController.fetchData), for: .valueChanged)
         fetchData()
+        initRealmToken()
         self.title = "Mobile Data Usages"
     }
 
     // MARK: - API
     @objc func fetchData() {
         self.tableView.refreshControl?.beginRefreshing()
-        notificationToken?.invalidate()
         HMNetworkManager.fetchDataUsage(success: { (usage) in
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
@@ -71,7 +72,8 @@ extension UsageListViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsageCell", for: indexPath) as! UsageCell
         cell.anualUsage = usages[indexPath.row]
         cell.buttonTapped = { usage in
-            
+            let quarters = Array(usage.decreasedQuarters).joined(separator: ", ")
+            self.showAlert(title: "Year: \(usage.year)", message: "Decreased quarters:\n\(quarters)")
         }
         return cell
     }
@@ -83,7 +85,7 @@ extension UsageListViewController {
 extension UsageListViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 90
     }
     
 }

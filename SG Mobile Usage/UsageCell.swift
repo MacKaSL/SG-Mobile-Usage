@@ -23,8 +23,11 @@ class UsageCell: UITableViewCell {
     
     func prepareData() {
         if let usage = anualUsage {
-//            lblYear.text = "\(usage.year)"
-//            lblUsage.text = "\(usage.total)"
+            lblYear.text = "\(usage.year)"
+            lblUsage.text = String(format: "%.6f", usage.total)
+            btnDecreased.isHidden = !usage.hasDecreased
+            lblYear.textColor = usage.hasDecreased ? .red : .white
+            lblUsage.textColor = usage.hasDecreased ? .red : .white
         }
     }
     

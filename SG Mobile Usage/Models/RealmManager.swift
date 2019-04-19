@@ -40,11 +40,11 @@ class RealmManager {
     ///
     /// - Parameter class: Realm Object Class
     /// - Throws: Removing error
-    static func removeAll<T: Object>(class: T) throws {
+    static func removeAll(_ o: Object.Type) throws {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.delete((realm.objects(T.self)))
+                realm.delete(realm.objects(o))
             }
         } catch let e {
             print("######## Realm removeAll error: ", e.localizedDescription)

@@ -18,16 +18,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsageCell" rowHeight="102" id="S6C-A8-uj8" customClass="UsageCell" customModule="SG_Mobile_Usage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="102"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsageCell" rowHeight="90" id="S6C-A8-uj8" customClass="UsageCell" customModule="SG_Mobile_Usage" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S6C-A8-uj8" id="EqR-j0-zE2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oV9-Nq-JgU">
-                                            <rect key="frame" x="8" y="8" width="398" height="86"/>
-                                            <color key="backgroundColor" red="0.97254901959999995" green="0.95686274510000002" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="8" y="8" width="398" height="82"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yQ-vs-BUc">
+                                                    <rect key="frame" x="8" y="8" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80E-Se-Uf3">
+                                                    <rect key="frame" x="8" y="38" width="46.5" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-1t-xFo">
+                                                    <rect key="frame" x="360" y="8" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="QQc-do-3jD"/>
+                                                        <constraint firstAttribute="height" constant="30" id="xwV-bM-Thf"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                                    <state key="normal" image="chart"/>
+                                                    <connections>
+                                                        <action selector="decreasedButtonTapped" destination="S6C-A8-uj8" eventType="touchUpInside" id="0w3-vk-nIg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.5568627451" green="0.69803921570000005" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="7yQ-vs-BUc" firstAttribute="leading" secondItem="oV9-Nq-JgU" secondAttribute="leading" constant="8" id="AuG-bB-bLQ"/>
+                                                <constraint firstItem="80E-Se-Uf3" firstAttribute="leading" secondItem="oV9-Nq-JgU" secondAttribute="leading" constant="8" id="OdS-Sc-WfI"/>
+                                                <constraint firstItem="OrW-1t-xFo" firstAttribute="top" secondItem="oV9-Nq-JgU" secondAttribute="top" constant="8" id="R5Y-Ur-035"/>
+                                                <constraint firstAttribute="bottom" secondItem="80E-Se-Uf3" secondAttribute="bottom" constant="8" id="dpg-MX-lvY"/>
+                                                <constraint firstItem="7yQ-vs-BUc" firstAttribute="top" secondItem="oV9-Nq-JgU" secondAttribute="top" constant="8" id="ern-iV-i1o"/>
+                                                <constraint firstAttribute="trailing" secondItem="OrW-1t-xFo" secondAttribute="trailing" constant="8" id="obB-qL-PII"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
                                                     <real key="value" value="10"/>
@@ -38,11 +72,16 @@
                                     <constraints>
                                         <constraint firstItem="oV9-Nq-JgU" firstAttribute="leading" secondItem="EqR-j0-zE2" secondAttribute="leading" constant="8" id="Pcv-J4-oG4"/>
                                         <constraint firstItem="oV9-Nq-JgU" firstAttribute="top" secondItem="EqR-j0-zE2" secondAttribute="top" constant="8" id="UoB-Pt-GPo"/>
-                                        <constraint firstAttribute="bottom" secondItem="oV9-Nq-JgU" secondAttribute="bottom" constant="8" id="WQk-51-zXY"/>
+                                        <constraint firstAttribute="bottom" secondItem="oV9-Nq-JgU" secondAttribute="bottom" id="WQk-51-zXY"/>
                                         <constraint firstAttribute="trailing" secondItem="oV9-Nq-JgU" secondAttribute="trailing" constant="8" id="o1q-co-s1L"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="btnDecreased" destination="OrW-1t-xFo" id="4OE-dC-qcc"/>
+                                    <outlet property="lblUsage" destination="80E-Se-Uf3" id="Lid-a4-GEO"/>
+                                    <outlet property="lblYear" destination="7yQ-vs-BUc" id="L4l-Uq-UCS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -61,8 +100,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="66c-JV-sW6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0G5-16-e8u">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0G5-16-e8u">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.96078431369999995" green="0.85490196080000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.015686274510000001" green="0.42745098040000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -83,4 +122,7 @@
             <point key="canvasLocation" x="-284.05797101449275" y="195.53571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart" width="30" height="30"/>
+    </resources>
 </document>
