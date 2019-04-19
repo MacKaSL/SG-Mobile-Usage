@@ -46,7 +46,7 @@ class HMNetworking: NSObject {
         if parameters != nil {
             urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters!, options: .prettyPrinted)
         }
-//        URLSession.init()
+        
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if error == nil {
                 if let urlResponse = response as? HTTPURLResponse {
