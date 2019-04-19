@@ -31,8 +31,8 @@ class QuarterUsage: Object {
     }
     
     required convenience init(json: [String: Any]) {
-        let id = json[Constants.JSONKey.id] as? Int ?? -1
-        let dataVolume = Double(json[Constants.JSONKey.volume] as? String ?? "0.0")!
+        let id = json[Constants.JSONKey.id] as? Int ?? 0
+        let dataVolume = Double(json[Constants.JSONKey.volume] as? String ?? "0.0") ?? 0.0
         var year: Int = 0
         var quarter = ""
         
