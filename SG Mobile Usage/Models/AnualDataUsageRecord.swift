@@ -6,25 +6,34 @@
 //  Copyright © 2019 Himal Madhushan. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-struct AnualDataUsageRecord {
-    var year: Int, total: Double, hasDecreased = false
-    var decreasedQuarters: [String]
-    var quarterUsages = [QuarterUsage]()
+class AnualDataUsageRecord: Object {
     
-    init(year: Int, lastQuarter: QuarterUsage?, quarterUsages: [QuarterUsage]) throws {
+    @objc dynamic var year: Int = 0
+    @objc dynamic var total: Double = 0.0
+    @objc dynamic var hasDecreased: Bool = false
+    var decreasedQuarters = List<String>()
+    var quarterUsages = List<QuarterUsage>()
+    
+//    var decreasedQuarters: [String] = []
+//    var quarterUsages = [QuarterUsage]()
+    
+    override static func primaryKey() -> String? {
+        return "year"
+    }
+    
+    required convenience init(year: Int, lastQuarter: QuarterUsage?, quarterUsages: [QuarterUsage]) throws {
         
         // Check if there is at least 1 quarter usage detail
         guard quarterUsages.count > 0 else {
             throw DataUsageError.invalidNumberOfQuaters
         }
         
+        self.init()
+        
         self.year = year
-        self.quarterUsages = quarterUsages
-        self.decreasedQuarters = [String]()
-        self.hasDecreased = false
-        self.total = 0.0
+        self.quarterUsages.append(objectsIn: quarterUsages)
         
         var lastQuarter = lastQuarter
         
@@ -39,5 +48,7 @@ struct AnualDataUsageRecord {
             }
             lastQuarter = usage
         }
+        
+        try? RealmManager.save(self)
     }
 }
