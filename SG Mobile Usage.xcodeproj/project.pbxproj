@@ -19,8 +19,13 @@
 		01EAFE5F22698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
 		01EAFE6022698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
 		01EAFE6122698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */; };
+		01EAFE632269914500F82B01 /* UsageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE622269914500F82B01 /* UsageListViewController.swift */; };
+		01EAFE642269914500F82B01 /* UsageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE622269914500F82B01 /* UsageListViewController.swift */; };
+		01EAFE652269914500F82B01 /* UsageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE622269914500F82B01 /* UsageListViewController.swift */; };
+		01EAFE672269919A00F82B01 /* UsageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE662269919A00F82B01 /* UsageCell.swift */; };
+		01EAFE682269919A00F82B01 /* UsageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE662269919A00F82B01 /* UsageCell.swift */; };
+		01EAFE692269919A00F82B01 /* UsageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE662269919A00F82B01 /* UsageCell.swift */; };
 		01F2A4E82267A6840003EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2A4E72267A6840003EC47 /* AppDelegate.swift */; };
-		01F2A4EA2267A6840003EC47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F2A4E92267A6840003EC47 /* ViewController.swift */; };
 		01F2A4ED2267A6840003EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F2A4EB2267A6840003EC47 /* Main.storyboard */; };
 		01F2A4EF2267A6860003EC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F2A4EE2267A6860003EC47 /* Assets.xcassets */; };
 		01F2A4F22267A6860003EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F2A4F02267A6860003EC47 /* LaunchScreen.storyboard */; };
@@ -65,9 +70,10 @@
 		01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsageResponseHandler.swift; sourceTree = "<group>"; };
 		01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterUsage.swift; sourceTree = "<group>"; };
 		01EAFE5E22698CCA00F82B01 /* AnualDataUsageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnualDataUsageRecord.swift; sourceTree = "<group>"; };
+		01EAFE622269914500F82B01 /* UsageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageListViewController.swift; sourceTree = "<group>"; };
+		01EAFE662269919A00F82B01 /* UsageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageCell.swift; sourceTree = "<group>"; };
 		01F2A4E42267A6840003EC47 /* SG Mobile Usage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SG Mobile Usage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F2A4E72267A6840003EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01F2A4E92267A6840003EC47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01F2A4EC2267A6840003EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01F2A4EE2267A6860003EC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01F2A4F12267A6860003EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,7 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				01F2A4E72267A6840003EC47 /* AppDelegate.swift */,
-				01F2A4E92267A6840003EC47 /* ViewController.swift */,
+				01EAFE622269914500F82B01 /* UsageListViewController.swift */,
+				01EAFE662269919A00F82B01 /* UsageCell.swift */,
 				01EAFE5922698C5400F82B01 /* Models */,
 				01F2A5262267AB350003EC47 /* Utils */,
 				01F2A5182267A6E70003EC47 /* Networking */,
@@ -501,8 +508,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EAFE672269919A00F82B01 /* UsageCell.swift in Sources */,
+				01EAFE632269914500F82B01 /* UsageListViewController.swift in Sources */,
 				01EAFE5F22698CCA00F82B01 /* AnualDataUsageRecord.swift in Sources */,
-				01F2A4EA2267A6840003EC47 /* ViewController.swift in Sources */,
 				01F2A51A2267A6E70003EC47 /* Extensions.swift in Sources */,
 				01EAFE5222682B1300F82B01 /* HMNetworkManager.swift in Sources */,
 				01F2A5232267A6E70003EC47 /* HMNetworking.swift in Sources */,
@@ -518,6 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EAFE682269919A00F82B01 /* UsageCell.swift in Sources */,
+				01EAFE642269914500F82B01 /* UsageListViewController.swift in Sources */,
 				01F2A5242267A6E70003EC47 /* HMNetworking.swift in Sources */,
 				01EAFE5322682B1300F82B01 /* HMNetworkManager.swift in Sources */,
 				01EAFE572268337300F82B01 /* DataUsageResponseHandler.swift in Sources */,
@@ -534,6 +544,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EAFE692269919A00F82B01 /* UsageCell.swift in Sources */,
+				01EAFE652269914500F82B01 /* UsageListViewController.swift in Sources */,
 				01F2A5252267A6E70003EC47 /* HMNetworking.swift in Sources */,
 				01EAFE5422682B1300F82B01 /* HMNetworkManager.swift in Sources */,
 				01EAFE582268337300F82B01 /* DataUsageResponseHandler.swift in Sources */,
