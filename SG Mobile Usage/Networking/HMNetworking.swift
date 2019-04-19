@@ -18,8 +18,7 @@ class HMNetworking: NSObject {
     static let shared = HMNetworking()
     let reachabilityManager = Reachability.forInternetConnection()
     var isReachable: Bool {
-//        let reachability = Reachability()
-        return true // reachability.isReachable()
+        return reachabilityManager!.isReachableViaWiFi() || reachabilityManager!.isReachableViaWWAN()
     }
     
     /// Request that matches for all and encodes accoording to the method
