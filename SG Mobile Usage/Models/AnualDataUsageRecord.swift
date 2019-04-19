@@ -16,9 +16,6 @@ class AnualDataUsageRecord: Object {
     var decreasedQuarters = List<String>()
     var quarterUsages = List<QuarterUsage>()
     
-//    var decreasedQuarters: [String] = []
-//    var quarterUsages = [QuarterUsage]()
-    
     override static func primaryKey() -> String? {
         return "year"
     }

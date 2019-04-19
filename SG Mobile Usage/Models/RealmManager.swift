@@ -25,17 +25,6 @@ class RealmManager {
         }
     }
     
-    static func delete(_ o: Object) {
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.delete(o)
-            }
-        } catch let e {
-            print("######## Realm deleting error: ", e.localizedDescription)
-        }
-    }
-    
     /// Removes all records of a given Object
     ///
     /// - Parameter class: Realm Object Class
