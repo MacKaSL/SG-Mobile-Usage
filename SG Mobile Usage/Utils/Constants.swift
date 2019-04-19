@@ -31,6 +31,10 @@ struct Constants {
         static let noResponse = 404
         static let parsingFailed = 500
         static let sessionFailed = 505
+        static let realmSaveFailed = 600
+        static let realmUpdateFailed = 601
+        static let realmDeleteFailed = 602
+        static let realmDeleteAllFailed = 603
     }
     
 }

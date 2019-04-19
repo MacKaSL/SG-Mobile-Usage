@@ -129,7 +129,7 @@ struct HMHeaders {
 
 
 struct ErrorParser {
-    static func parsed(_ errorMessage: String, errorCode: Int) -> NSError? {
+    static func parsed(_ errorMessage: String, errorCode: Int) -> NSError {
         let error = NSError.init(domain: Constants.ErrorCode.domain, code: errorCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
         return error
     }

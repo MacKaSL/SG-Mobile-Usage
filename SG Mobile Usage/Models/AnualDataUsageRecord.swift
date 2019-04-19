@@ -14,7 +14,9 @@ struct AnualDataUsageRecord {
     var quarterUsages = [QuarterUsage]()
     
     init(year: Int, lastQuarter: QuarterUsage?, quarterUsages: [QuarterUsage]) throws {
-        guard quarterUsages.count >= 1 else {
+        
+        // Check if there is at least 1 quarter usage detail
+        guard quarterUsages.count > 0 else {
             throw DataUsageError.invalidNumberOfQuaters
         }
         
@@ -28,6 +30,7 @@ struct AnualDataUsageRecord {
         
         for usage in quarterUsages {
             
+            // Adding all quarter usages into anual total
             self.total += usage.mobileDataVolume
             
             if let lq = lastQuarter, lq.mobileDataVolume > usage.mobileDataVolume {

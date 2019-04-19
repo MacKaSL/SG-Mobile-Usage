@@ -34,9 +34,7 @@ struct DataUsageResponseHandler {
                     let annualDataUsage = try AnualDataUsageRecord.init(year: year, lastQuarter: lastQuarter, quarterUsages: filteredQuaters)
                     self.anualUsage.append(annualDataUsage)
                     lastQuarter = filteredQuaters.last
-                } catch {
-                    print("Annual data usage creation skipped.")
-                }
+                } catch { }
             }
         } else {
             throw DataUsageError.invalidJSON

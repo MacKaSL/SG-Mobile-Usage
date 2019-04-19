@@ -5,6 +5,7 @@ platform :ios, '10.0'
 
 def shared_pods
     pod 'Reachability'
+    pod 'RealmSwift'
 end
 
 target 'SG Mobile Usage' do
