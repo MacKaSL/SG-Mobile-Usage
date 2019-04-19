@@ -52,3 +52,18 @@ class AnualDataUsageRecord: Object {
         try? RealmManager.save(self)
     }
 }
+
+
+// MARK: - CRUD
+extension AnualDataUsageRecord {
+    
+    /// Returns all anual records
+    ///
+    /// - Parameters:
+    ///   - realm: Realm instance
+    /// - Returns: [AnualDataUsageRecord]
+    static func all(in realm: Realm = try! Realm()) -> Results<AnualDataUsageRecord> {
+        return realm.objects(AnualDataUsageRecord.self)
+    }
+    
+}

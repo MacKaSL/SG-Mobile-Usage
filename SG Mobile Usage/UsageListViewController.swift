@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UsageListViewController: UITableViewController {
 
-    var usages: [AnualDataUsageRecord] = []
+    var usages: Results<AnualDataUsageRecord> {
+        return AnualDataUsageRecord.all()
+    }
+    var notificationToken: NotificationToken?
     
     // MARK: - View
     override func viewDidLoad() {
@@ -24,17 +28,32 @@ class UsageListViewController: UITableViewController {
     // MARK: - API
     @objc func fetchData() {
         self.tableView.refreshControl?.beginRefreshing()
+        notificationToken?.invalidate()
         HMNetworkManager.fetchDataUsage(success: { (usage) in
-            self.usages = usage
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
             }
         }) { (error) in
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
                 self.showAlert(title: "Sorry!", message: error?.localizedDescription ?? "Unble to load usage data.")
+            }
+        }
+    }
+    
+    func initRealmToken() {
+        notificationToken = usages.observe { [weak self] (changes) in
+            guard let tableView = self?.tableView else { return }
+            
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.applyChanges(deletions: deletions, insertions: insertions, updates: modifications)
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                print("\(error)")
             }
         }
     }
