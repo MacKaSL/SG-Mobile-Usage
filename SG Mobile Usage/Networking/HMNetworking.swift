@@ -18,8 +18,8 @@ class HMNetworking: NSObject {
     static let shared = HMNetworking()
     let reachabilityManager = Reachability.forInternetConnection()
     var isReachable: Bool {
-        let reachability = Reachability()
-        return reachability.isReachable()
+//        let reachability = Reachability()
+        return true // reachability.isReachable()
     }
     
     /// Request that matches for all and encodes accoording to the method
@@ -47,8 +47,8 @@ class HMNetworking: NSObject {
         if parameters != nil {
             urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters!, options: .prettyPrinted)
         }
-        
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+//        URLSession.init()
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if error == nil {
                 if let urlResponse = response as? HTTPURLResponse {
                     // Check if API call was successful
@@ -82,6 +82,7 @@ class HMNetworking: NSObject {
                 failure(error)
             }
         }
+        dataTask.resume()
     }
     
 }
@@ -114,7 +115,7 @@ enum APIURL: APIURLAccessible {
     var completedURL: String {
         switch self {
         case .dataUsage:
-            return Constants.apiBaseURL.appending("/authentication/login")
+            return Constants.apiBaseURL.appending("/api/action/datastore_search?resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f")
         }
     }
 }

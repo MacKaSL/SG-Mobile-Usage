@@ -23,8 +23,8 @@ class UsageCell: UITableViewCell {
     
     func prepareData() {
         if let usage = anualUsage {
-            lblYear.text = "\(usage.year)"
-            lblUsage.text = "\(usage.total)"
+//            lblYear.text = "\(usage.year)"
+//            lblUsage.text = "\(usage.total)"
         }
     }
     

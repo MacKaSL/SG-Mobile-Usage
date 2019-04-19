@@ -11,6 +11,7 @@ import Foundation
 class HMNetworkManager {
     
     static func fetchDataUsage(success: @escaping (([AnualDataUsageRecord]) -> Void), failure: @escaping FailureCompletionBlock) {
+//        let n = HMNetworking.init()
         HMNetworking.request(.dataUsage, method: .get, success: { (results) in
             if let resp = results as? [String: Any], let json = resp[Constants.JSONKey.result] as? [String: Any] {
                 do {

@@ -15,15 +15,27 @@ class UsageListViewController: UITableViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(UsageListViewController.fetchData), for: .valueChanged)
+        fetchData()
+        self.title = "Mobile Data Usages"
     }
 
     // MARK: - API
-    func fetchData() {
-        HMNetworkManager.fetchDataUsage(success: { (usages) in
-            self.usages = usages
-            self.tableView.reloadData()
+    @objc func fetchData() {
+        self.tableView.refreshControl?.beginRefreshing()
+        HMNetworkManager.fetchDataUsage(success: { (usage) in
+            self.usages = usage
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
         }) { (error) in
-            
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+                self.showAlert(title: "Sorry!", message: error?.localizedDescription ?? "Unble to load usage data.")
+            }
         }
     }
 }
@@ -43,6 +55,16 @@ extension UsageListViewController {
             
         }
         return cell
+    }
+    
+}
+
+
+// MARK: - Table View Delegate
+extension UsageListViewController {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
 }

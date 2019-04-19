@@ -9,12 +9,12 @@
 import Foundation
 
 struct AnualDataUsageRecord {
-    var year: Int8, total: Double, hasDecreased = false
+    var year: Int, total: Double, hasDecreased = false
     var decreasedQuarters: [String]
     var quarterUsages = [QuarterUsage]()
     
-    init(year: Int8, lastQuarter: QuarterUsage?, quarterUsages: [QuarterUsage]) throws {
-        guard quarterUsages.count == 0 else {
+    init(year: Int, lastQuarter: QuarterUsage?, quarterUsages: [QuarterUsage]) throws {
+        guard quarterUsages.count >= 1 else {
             throw DataUsageError.invalidNumberOfQuaters
         }
         
@@ -27,6 +27,9 @@ struct AnualDataUsageRecord {
         var lastQuarter = lastQuarter
         
         for usage in quarterUsages {
+            
+            self.total += usage.mobileDataVolume
+            
             if let lq = lastQuarter, lq.mobileDataVolume > usage.mobileDataVolume {
                 self.hasDecreased = true
                 self.decreasedQuarters.append(usage.quarter)
