@@ -11,23 +11,31 @@ import XCTest
 
 class AnualDataUsageRecordTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testEmptyQuarterSetToAnual() {
         XCTAssertThrowsError(try AnualDataUsageRecord.init(year: 2004, lastQuarter: nil, quarterUsages: []))
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testNumberOfAnualRecords() {
+        let json = MockJsonData.fullJson()
+        do  {
+            if let json = json[Constants.JSONKey.result] as? [String: Any] {
+                let responseObj = try DataUsageResponseHandler.init(json)
+                XCTAssertEqual(responseObj.anualUsage.count, 3, "Invalid years count")
+            }
+        } catch {}
+    }
+    
+    func testAnualRecords() {
+        let lastQ = QuarterUsage.init(id: 1, year: 2014, quarter: "Q3", volume: 20.6343)
+        let q1 = QuarterUsage.init(id: 2, year: 2015, quarter: "Q1", volume: 18.6343)
+        let q2 = QuarterUsage.init(id: 3, year: 2015, quarter: "Q2", volume: 18.6343)
+        
+        var anualRecord: AnualDataUsageRecord!
+        do {
+            anualRecord = try AnualDataUsageRecord.init(year: 2015, lastQuarter: lastQ, quarterUsages: [q1, q2])
+        } catch  { }
+        
+        XCTAssertEqual(anualRecord.decreasedQuarters.count, 1, "Wrong decreased quarter count")
     }
 
 }

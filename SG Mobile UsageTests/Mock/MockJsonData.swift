@@ -7,10 +7,11 @@
 //
 
 import Foundation
+@testable import SG_Mobile_Usage
 
 struct MockJsonData {
     
-    static func quarterUsage() -> [String: Any] {
+    static func quarterUsageDict() -> [String: Any] {
         return ["volume_of_mobile_data": "10.96733",
         "quarter": "2016-Q1",
         "_id": 47]
@@ -44,30 +45,6 @@ struct MockJsonData {
         return ["volume_of_mobile_data": "",
                 "quarter": "",
                 "_id": 47]
-    }
-    
-    static func quarterUsagesArray() -> [[String: Any]] {
-        return [["volume_of_mobile_data": "0.000384",
-                 "quarter": "2004-Q3",
-                 "_id": 1],
-                ["volume_of_mobile_data": "0.000543",
-                 "quarter": "2004-Q4",
-                 "_id": 2],
-                ["volume_of_mobile_data": "0.00062",
-                 "quarter": "2005-Q1",
-                 "_id": 3],
-                ["volume_of_mobile_data": "0.000634",
-                 "quarter": "2005-Q2",
-                 "_id": 4],
-                ["volume_of_mobile_data": "0.001189",
-                 "quarter": "2006-Q2",
-                 "_id": 5],
-                ["volume_of_mobile_data": "0.001735",
-                 "quarter": "2006-Q3",
-                 "_id": 6],
-                ["volume_of_mobile_data": "0.003323",
-                 "quarter": "2006-Q4",
-                 "_id": 7]]
     }
     
     static func emptyDictionaryArray() -> [[String: Any]] {

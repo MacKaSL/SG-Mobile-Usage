@@ -10,17 +10,9 @@ import XCTest
 @testable import SG_Mobile_Usage
 
 class QuarterUsageTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
     
     func testQuarterUsage() {
-        let mock = MockJsonData.quarterUsage()
+        let mock = MockJsonData.quarterUsageDict()
         let quarter = QuarterUsage.init(json: mock)
         XCTAssertEqual(quarter.id, 47, "Quarter usage id couldn't extract")
         XCTAssertEqual(quarter.mobileDataVolume, 10.96733, "Quarter usage volume_of_mobile_data couldn't extract")
@@ -53,14 +45,6 @@ class QuarterUsageTests: XCTestCase {
         let mock = MockJsonData.quarterUsageEmptyVolumeData()
         let quarter = QuarterUsage.init(json: mock)
         XCTAssertEqual(quarter.mobileDataVolume, 0, "Quarter usage mobileDataVolume is getting wrong value")
-    }
-    
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

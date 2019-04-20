@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B305A2226AFDF70057F709 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A1226AFDF70057F709 /* NetworkTests.swift */; };
+		01B305A4226B02970057F709 /* ReachabilityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A3226B02970057F709 /* ReachabilityMock.swift */; };
+		01B305A6226B07350057F709 /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A5226B07350057F709 /* SessionMock.swift */; };
 		01EAFE5222682B1300F82B01 /* HMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */; };
 		01EAFE562268337300F82B01 /* DataUsageResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */; };
 		01EAFE5B22698C9C00F82B01 /* QuarterUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01B305A1226AFDF70057F709 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		01B305A3226B02970057F709 /* ReachabilityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityMock.swift; sourceTree = "<group>"; };
+		01B305A5226B07350057F709 /* SessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMock.swift; sourceTree = "<group>"; };
 		01EAFE5122682B1300F82B01 /* HMNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMNetworkManager.swift; sourceTree = "<group>"; };
 		01EAFE552268337300F82B01 /* DataUsageResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsageResponseHandler.swift; sourceTree = "<group>"; };
 		01EAFE5A22698C9C00F82B01 /* QuarterUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarterUsage.swift; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				01EAFE712269DF5700F82B01 /* MockJsonData.swift */,
+				01B305A3226B02970057F709 /* ReachabilityMock.swift */,
+				01B305A5226B07350057F709 /* SessionMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 				01EAFE6E2269DBC400F82B01 /* DataUsageResponseHandlerTests.swift */,
 				01EAFE74226A15C300F82B01 /* QuarterUsageTests.swift */,
 				01EAFE76226A162700F82B01 /* AnualDataUsageRecordTests.swift */,
+				01B305A1226AFDF70057F709 /* NetworkTests.swift */,
 				01F2A4FE2267A6860003EC47 /* Info.plist */,
 			);
 			path = "SG Mobile UsageTests";
@@ -542,8 +551,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B305A2226AFDF70057F709 /* NetworkTests.swift in Sources */,
 				01EAFE6F2269DBC400F82B01 /* DataUsageResponseHandlerTests.swift in Sources */,
+				01B305A6226B07350057F709 /* SessionMock.swift in Sources */,
 				01EAFE722269DF5700F82B01 /* MockJsonData.swift in Sources */,
+				01B305A4226B02970057F709 /* ReachabilityMock.swift in Sources */,
 				01EAFE75226A15C300F82B01 /* QuarterUsageTests.swift in Sources */,
 				01EAFE77226A162700F82B01 /* AnualDataUsageRecordTests.swift in Sources */,
 				01F2A4FD2267A6860003EC47 /* SG_Mobile_UsageTests.swift in Sources */,
