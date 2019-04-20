@@ -13,12 +13,18 @@ typealias SuccessCompletionBlock = (_ result: Any?) -> Void
 typealias FailureCompletionBlock = (_ error: NSError?) -> Void
 typealias Parameters = [String: AnyHashable]
 
-class HMNetworking: NSObject {
+class HMNetworking {
     
     static let shared = HMNetworking()
-    let reachabilityManager = Reachability.forInternetConnection()
+    var reachabilityManager: Reachability
     var isReachable: Bool {
-        return reachabilityManager!.isReachableViaWiFi() || reachabilityManager!.isReachableViaWWAN()
+        return reachabilityManager.isReachableViaWiFi() || reachabilityManager.isReachableViaWWAN()
+    }
+    var urlSession: URLSession
+    
+    private init() {
+        self.urlSession = URLSession.shared
+        self.reachabilityManager = Reachability.forInternetConnection()
     }
     
     /// Request that matches for all and encodes accoording to the method
@@ -29,10 +35,10 @@ class HMNetworking: NSObject {
     ///   - parameters: Parameters
     ///   - headers: HMHeaders
     ///   - completion: Completion block for success or failure
-    static func request(_ apiURL: APIURL, method: HTTPMethod, parameters: Parameters? = nil, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock) {
+    func request(_ apiURL: APIURL, method: HTTPMethod, parameters: Parameters? = nil, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock) {
         
         guard HMNetworking.shared.isReachable else {
-            Helper.showAlert(on: nil, title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
+            Helper.showAlert(title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
             return
         }
         
@@ -47,7 +53,7 @@ class HMNetworking: NSObject {
             urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters!, options: .prettyPrinted)
         }
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let dataTask = urlSession.dataTask(with: urlRequest) { (data, response, error) in
             if error == nil {
                 if let urlResponse = response as? HTTPURLResponse {
                     // Check if API call was successful
@@ -84,22 +90,6 @@ class HMNetworking: NSObject {
         dataTask.resume()
     }
     
-}
-
-
-// MARK: - Reachability
-extension HMNetworking {
-    static func setupReachability() {
-        let manager = HMNetworking.shared.reachabilityManager
-        manager?.startNotifier()
-        manager?.unreachableBlock = { reachability in
-            DispatchQueue.main.async {
-                if let r = reachability, !r.isReachable() {
-                    Helper.showAlert(on: nil, title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
-                }
-            }
-        }
-    }
 }
 
 

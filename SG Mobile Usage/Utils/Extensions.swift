@@ -33,14 +33,6 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showAlert(title: String, message: String, actionTitle: String, completion: @escaping (()->())) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: actionTitle, style: .cancel, handler: { (action) in
-            completion()
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
 }
 
 

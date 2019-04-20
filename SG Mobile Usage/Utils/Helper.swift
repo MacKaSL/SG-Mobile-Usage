@@ -21,17 +21,13 @@ class Helper {
     ///   - on: a UIViewController (optional)
     ///   - title: Alert title
     ///   - message: Alert message
-    static func showAlert(on: UIViewController? = nil, title: String, message: String, completion: (()->())? = nil) {
+    static func showAlert(title: String, message: String, completion: (()->())? = nil) {
         DispatchQueue.main.async(execute: {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                 completion?()
             }))
-            if on == nil {
-                rootViewController()?.present(alert, animated: true, completion: nil)
-            } else {
-                on?.present(alert, animated: true, completion: nil)
-            }
+            rootViewController()?.present(alert, animated: true, completion: nil)
         })
     }
     
