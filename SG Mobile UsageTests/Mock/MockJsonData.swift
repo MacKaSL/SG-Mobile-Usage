@@ -82,4 +82,16 @@ struct MockJsonData {
                   "total": 56 ]]
     }
     
+    static func fullJsonWithoutRecords() -> [String: Any] {
+        return ["help": "https://data.gov.sg/api/3/action/help_show?name=datastore_search",
+                "success": true,
+                "result":["resource_id": "a807b7ab-6cad-4aa6-87d0-e283a7353a0f",
+                          "fields": [["type": "int4", "id": "_id"], ["type": "text", "id": "quarter"], ["type": "numeric", "id": "volume_of_mobile_data"]],
+                          "_links": ["start": "/api/action/datastore_search?resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f",
+                                     "next": "/api/action/datastore_search?offset=100&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f"],
+                          "total": 56 ]]
+    }
+    
+    
+    
 }

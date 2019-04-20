@@ -38,7 +38,7 @@ class HMNetworking {
     func request(_ apiURL: APIURL, method: HTTPMethod, parameters: Parameters? = nil, success: @escaping SuccessCompletionBlock, failure: @escaping FailureCompletionBlock) {
         
         guard HMNetworking.shared.isReachable else {
-            Helper.showAlert(on: nil, title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
+            Helper.showAlert(title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
             return
         }
         
@@ -90,22 +90,6 @@ class HMNetworking {
         dataTask.resume()
     }
     
-}
-
-
-// MARK: - Reachability
-extension HMNetworking {
-    static func setupReachability() {
-        let manager = HMNetworking.shared.reachabilityManager
-        manager.startNotifier()
-        manager.unreachableBlock = { reachability in
-            DispatchQueue.main.async {
-                if let r = reachability, !r.isReachable() {
-                    Helper.showAlert(on: nil, title: AlertMessage.noInternet.title, message: AlertMessage.noInternet.message)
-                }
-            }
-        }
-    }
 }
 
 

@@ -28,13 +28,14 @@ struct Constants {
     
     struct ErrorCode {
         static let domain = "com.sgmobileusage.networkerror"
-        static let noResponse = 404
-        static let parsingFailed = 500
-        static let sessionFailed = 505
-        static let realmSaveFailed = 600
-        static let realmUpdateFailed = 601
-        static let realmDeleteFailed = 602
-        static let realmDeleteAllFailed = 603
+        static let noResponse = 1000
+        static let parsingFailed = 1001
+        static let sessionFailed = 1002
+        static let realmSaveFailed = 1003
+        static let realmUpdateFailed = 1004
+        static let realmDeleteFailed = 1005
+        static let realmDeleteAllFailed = 1006
+        static let noRecordsFoundInJson = 1007
     }
     
 }

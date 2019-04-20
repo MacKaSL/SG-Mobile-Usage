@@ -18,7 +18,7 @@ class HMNetworkManager {
                     let usageResponse = try DataUsageResponseHandler.init(json)
                     success(usageResponse.anualUsage)
                 } catch {
-                    failure(ErrorParser.parsed("Could not load usage data.", errorCode: Constants.ErrorCode.parsingFailed))
+                    failure(ErrorParser.parsed("Could not load usage data.", errorCode: Constants.ErrorCode.noRecordsFoundInJson))
                 }
             }
         }) { (error) in
