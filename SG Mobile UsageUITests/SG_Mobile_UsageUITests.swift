@@ -26,9 +26,28 @@ class SG_Mobile_UsageUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testVolumeDecreasedButtonTap() {
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["11.453192"].swipeUp()
+        tablesQuery.cells.containing(.staticText, identifier:"2013").buttons["chart"].tap()
+        let alert = app.alerts["Year: 2013"]
+        alert.buttons["OK"].tap()
+        XCTAssertNotNil(alert)
+        
     }
-
+    
+    func testVolumeDecreasedButtonInvisible() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+//        tablesQuery.staticTexts["11.453192"].swipeUp()
+        XCTAssertFalse(tablesQuery.cells.containing(.staticText, identifier:"2004").buttons["chart"].exists)
+    }
+    
+    func testFirstCell() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        XCTAssertTrue(tablesQuery.staticTexts["0.000927"].exists)
+    }
 }
