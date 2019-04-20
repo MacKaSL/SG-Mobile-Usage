@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Reachability
 @testable import SG_Mobile_Usage
 
 class NetworkTests: XCTestCase {
@@ -16,9 +17,10 @@ class NetworkTests: XCTestCase {
     override func setUp() {
         network = HMNetworking.shared
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        network?.urlSession = URLSession.shared
+        network?.reachabilityManager = Reachability.forInternetConnection()
     }
 
     func testUsageURL() {
@@ -30,7 +32,6 @@ class NetworkTests: XCTestCase {
         let rMock = ReachabilityMock.forInternetConnection() as! ReachabilityMock
         rMock.reachableWifi = false
         rMock.reachableWWAN = false
-        
         network?.reachabilityManager = rMock
         
         network?.request(.dataUsage, method: .get, success: { (resp) in
@@ -41,6 +42,22 @@ class NetworkTests: XCTestCase {
     }
     
     func testInvalidResponseJSON() {
+        let mock = MockSession()
+        mock.data = "<html></html>".data(using: .utf8)
+        mock.response = HTTPURLResponse(url: URL(string: APIURL.invalid.completedURL)!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        mock.error = nil
         
+        let rMock = ReachabilityMock.forInternetConnection() as! ReachabilityMock
+        rMock.reachableWifi = true
+        rMock.reachableWWAN = true
+        
+        network?.reachabilityManager = rMock
+        network?.urlSession = mock
+        
+        network?.request(.dataUsage, method: .get, success: { (resp) in
+            XCTFail("Cannot get called when there is a failure")
+        }, failure: { (error) in
+            XCTAssertEqual(error?.code, Constants.ErrorCode.parsingFailed, "Invalid json parsing should be failed")
+        })
     }
 }
