@@ -23,6 +23,12 @@ struct MockJsonData {
                 "_id": 47]
     }
     
+    static func quarterUsageWrongDetails() -> [String: Any] {
+        return ["volume_of_mobile_data": "abcd",
+                "quarter": "ABSD-QW",
+                "_id": "47"]
+    }
+    
     static func quarterUsageNoYear() -> [String: Any] {
         return ["volume_of_mobile_data": "10.96733",
                 "quarter": "-Q1",

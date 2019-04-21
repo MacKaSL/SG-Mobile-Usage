@@ -13,7 +13,7 @@ class UsageCell: UITableViewCell {
     @IBOutlet weak var lblUsage: UILabel!
     @IBOutlet weak var lblYear: UILabel!
     
-    var buttonTapped: ((AnualDataUsageRecord) -> Void) = { _ in }
+    var buttonTapped: ((AnualDataUsageRecord) -> Void)?// = { _ in }
     
     var anualUsage: AnualDataUsageRecord? {
         didSet {
@@ -33,7 +33,7 @@ class UsageCell: UITableViewCell {
     
     @IBAction func decreasedButtonTapped() {
         if let usage = anualUsage {
-            buttonTapped(usage)
+            buttonTapped?(usage)
         }
     }
 }

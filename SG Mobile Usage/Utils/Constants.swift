@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     
     static let apiBaseURL = "https://data.gov.sg"
+    static let timeoutTime: Double = 20.0
     
     struct JSONKey {
         static let resourceId = "resource_id"
