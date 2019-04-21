@@ -11,7 +11,7 @@ Name: Himal Madhushan
 Email: himalmadhushankl@gmail.com
 
 
-#### Code Coverage: 93.3%
+#### Code Coverage: 94.7%
 
 
 <img src="https://github.com/MacKaSL/SG-Mobile-Usage/blob/master/Screen-Shot-cropped.png" height="300" width="1000">
