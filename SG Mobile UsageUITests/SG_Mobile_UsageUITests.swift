@@ -7,23 +7,16 @@
 //
 
 import XCTest
+//@testable import SG_Mobile_Usage
 
 class SG_Mobile_UsageUITests: XCTestCase {
 
+//    var network: HMNetworking?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+//        network = HMNetworking.shared
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testVolumeDecreasedButtonTap() {
@@ -41,7 +34,6 @@ class SG_Mobile_UsageUITests: XCTestCase {
     func testVolumeDecreasedButtonInvisible() {
         let app = XCUIApplication()
         let tablesQuery = app.tables
-//        tablesQuery.staticTexts["11.453192"].swipeUp()
         XCTAssertFalse(tablesQuery.cells.containing(.staticText, identifier:"2004").buttons["chart"].exists)
     }
     
@@ -50,4 +42,37 @@ class SG_Mobile_UsageUITests: XCTestCase {
         let tablesQuery = app.tables
         XCTAssertTrue(tablesQuery.staticTexts["0.000927"].exists)
     }
+    
+    func testBackgroundViewHasRoundedConers() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        XCTAssertFalse(tablesQuery.cells.containing(.any, identifier: "UsageCellContainerRoundedView").element.exists)
+    }
+    
+    func testDataLoadingFailure() {
+//        let mock = MockSession()
+//        mock.data = nil
+//        mock.response = nil
+//        mock.error = ErrorParser.parsed("Test case failure", errorCode: 0)
+//
+//        network?.reachabilityManager = reachability(true)
+//        network?.urlSession = mock
+        
+//        let urlRequest = URLRequest.init(url: URL(string: "testUrl")!,
+//                                         cachePolicy: .useProtocolCachePolicy,
+//                                         timeoutInterval:20.0)
+//
+//        URLSession.shared.dataTask(with: urlRequest)
+//
+//        let app = XCUIApplication()
+//        let alert = app.alerts["Sorry!"]
+//        alert.buttons["OK"].tap()
+    }
+    
+//    func reachability(_ isReachable: Bool) -> ReachabilityMock {
+//        let rMock = ReachabilityMock.forInternetConnection() as! ReachabilityMock
+//        rMock.reachableWifi = isReachable
+//        rMock.reachableWWAN = isReachable
+//        return rMock
+//    }
 }

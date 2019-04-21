@@ -46,7 +46,7 @@ class HMNetworking {
         
         var urlRequest = URLRequest.init(url:url,
                                          cachePolicy: .useProtocolCachePolicy,
-                                         timeoutInterval:20.0)
+                                         timeoutInterval: Constants.timeoutTime)
         urlRequest.httpMethod = method.rawValue
         
         if parameters != nil {

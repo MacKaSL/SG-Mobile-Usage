@@ -39,8 +39,8 @@ class QuarterUsage: Object {
         if let quarterStr = json[Constants.JSONKey.quarter] as? String {
             let components = quarterStr.split(separator: "-")
             if(components.count == 2) {
-                year = Int(components.first ?? "0") ?? 0
-                quarter = String(components.last ?? "")
+                year = Int(components.first!) ?? 0
+                quarter = String(components.last!)
             }
         }
         

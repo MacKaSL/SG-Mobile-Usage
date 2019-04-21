@@ -32,8 +32,8 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(false)
         network?.request(.dataUsage, method: .get, success: { (resp) in
             XCTFail("This server call should be failed when there's no internet connection")
-        }, failure: { (error) in
-            XCTAssertNotNil(error, "There should be an error when API call is failed")
+        }, failure: { (e) in
+            XCTAssertNotNil(e, "There should be an error when API call is failed")
         })
     }
     
@@ -46,11 +46,19 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
+        let errorExpectation = expectation(description: "Invalid json parsing should be failed")
+        var error: NSError?
+        
         network?.request(.dataUsage, method: .get, success: { (resp) in
             XCTFail("Cannot get called when there is a failure")
-        }, failure: { (error) in
-            XCTAssertEqual(error?.code, Constants.ErrorCode.parsingFailed, "Invalid json parsing should be failed")
+        }, failure: { (e) in
+            error = e
+            errorExpectation.fulfill()
         })
+        
+        waitForExpectations(timeout: Constants.timeoutTime) { (e) in
+            XCTAssertEqual(error?.code, Constants.ErrorCode.parsingFailed, "Invalid json parsing should be failed")
+        }
     }
     
     func testServerError() {
@@ -62,11 +70,19 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
+        let errorExpectation = expectation(description: "Should be failed when server has error")
+        var error: NSError?
+        
         network?.request(.dataUsage, method: .get, success: { (resp) in
             XCTFail("Cannot get called when there is a failure")
-        }, failure: { (error) in
-            XCTAssertEqual(error?.code, 500, "Should be failed when server has error")
+        }, failure: { (e) in
+            error = e
+            errorExpectation.fulfill()
         })
+        
+        waitForExpectations(timeout: Constants.timeoutTime) { (e) in
+            XCTAssertEqual(error?.code, 500, "Should be failed when server has error")
+        }
     }
     
     func testNoResponseFromServer() {
@@ -78,11 +94,19 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
+        let errorExpectation = expectation(description: "Should be failed when there is no response from server")
+        var error: NSError?
+        
         network?.request(.dataUsage, method: .get, success: { (resp) in
             XCTFail("Cannot get called when there is a failure")
-        }, failure: { (error) in
-            XCTAssertEqual(error?.code, Constants.ErrorCode.noResponse, "Should be failed when there is no response from server")
+        }, failure: { (e) in
+            error = e
+            errorExpectation.fulfill()
         })
+        
+        waitForExpectations(timeout: Constants.timeoutTime) { (e) in
+            XCTAssertEqual(error?.code, Constants.ErrorCode.noResponse, "Should be failed when there is no response from server")
+        }
     }
     
     func testRequestError() {
@@ -94,12 +118,21 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
-        network?.request(.dataUsage, method: .get, success: { (resp) in
+        let errorExpectation = expectation(description: "Should be failed when there is error from server")
+        var error: NSError?
+        
+        let param = ["name": "Himal"]
+        network?.request(.dataUsage, method: .get, parameters: param, success: { (resp) in
             XCTFail("Cannot get called when there is a failure")
-        }, failure: { (error) in
+        }, failure: { (e) in
+            error = e
+            errorExpectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 10) { (e) in
             XCTAssertEqual(error?.code, Constants.ErrorCode.sessionFailed, "Should be failed when there is error from server")
             XCTAssertNotEqual(error?.code, -1)
-        })
+        }
     }
     
     func testJsonParsingFailure() {
@@ -111,9 +144,17 @@ class NetworkTests: XCTestCase {
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
+        let errorExpectation = expectation(description: "Json has no 'records' key")
+        var error: NSError?
+        
         HMNetworkManager.fetchDataUsage(success: { (records) in
             XCTFail("Cannot get called when there is a failure")
-        }) { (error) in
+        }) { (e) in
+            error = e
+            errorExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { (e) in
             XCTAssertEqual(error?.code, Constants.ErrorCode.noRecordsFoundInJson, "Should be failed when json doesn't contain 'records' key")
             XCTAssertNotEqual(error?.code, -1)
         }
@@ -122,17 +163,25 @@ class NetworkTests: XCTestCase {
     func testNetworkManagerNoResponse() {
         let mock = MockSession()
         mock.data = nil
-        mock.response = nil //HTTPURLResponse(url: URL(string: APIURL.invalid.completedURL)!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        mock.response = nil
         mock.error = ErrorParser.parsed("Test case failure", errorCode: 0)
         
         network?.reachabilityManager = reachability(true)
         network?.urlSession = mock
         
+        let errorExpectation = expectation(description: "Session error")
+        var serverError: NSError?
+        
         HMNetworkManager.fetchDataUsage(success: { (records) in
             XCTFail("Cannot get called when there is a failure")
         }) { (error) in
-            XCTAssertEqual(error?.code, Constants.ErrorCode.sessionFailed, "Should be failed when there is error from server")
-            XCTAssertNotEqual(error?.code, -1)
+            serverError = error
+            errorExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { (error) in
+            XCTAssertEqual(serverError?.code, Constants.ErrorCode.sessionFailed, "Should be failed when there is session error from server")
+            XCTAssertNotEqual(serverError?.code, -1)
         }
     }
     

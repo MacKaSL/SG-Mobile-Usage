@@ -47,4 +47,20 @@ class QuarterUsageTests: XCTestCase {
         XCTAssertEqual(quarter.mobileDataVolume, 0, "Quarter usage mobileDataVolume is getting wrong value")
     }
 
+    func testQuarterInitializer() {
+        let quarter = QuarterUsage.init(id: 0, year: 2011, quarter: "Q2", volume: 1.123)
+        XCTAssertEqual(quarter.id, 0, "Wrong initializer value in QuarterUsage")
+        XCTAssertEqual(quarter.year, 2011, "Wrong initializer value in QuarterUsage")
+        XCTAssertEqual(quarter.quarter, "Q2", "Wrong initializer value in QuarterUsage")
+        XCTAssertEqual(quarter.mobileDataVolume, 1.123, "Wrong initializer value in QuarterUsage")
+    }
+    
+    func testQuarterUsageWrongDetails() {
+        let mock = MockJsonData.quarterUsageWrongDetails()
+        let quarter = QuarterUsage.init(json: mock)
+        XCTAssertEqual(quarter.id, 0)
+        XCTAssertEqual(quarter.year, 0)
+        XCTAssertEqual(quarter.quarter, "QW")
+        XCTAssertEqual(quarter.mobileDataVolume, 0.0)
+    }
 }
