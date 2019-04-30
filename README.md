@@ -18,4 +18,4 @@ Email: himalmadhushankl@gmail.com
 
 #### XCode 10.2.1
 
-<img src="https://github.com/MacKaSL/SG-Mobile-Usage/blob/master/xcode%20version.png" height="400" width="1000">
+<img src="https://github.com/MacKaSL/SG-Mobile-Usage/blob/master/xcode%20version.png" height="500" width="1000">
