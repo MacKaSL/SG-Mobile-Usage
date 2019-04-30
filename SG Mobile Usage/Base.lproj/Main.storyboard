@@ -55,11 +55,13 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.5568627451" green="0.69803921570000005" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
+                                                <constraint firstItem="OrW-1t-xFo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7yQ-vs-BUc" secondAttribute="trailing" constant="8" symbolic="YES" id="6Ks-1F-86V"/>
                                                 <constraint firstItem="7yQ-vs-BUc" firstAttribute="leading" secondItem="oV9-Nq-JgU" secondAttribute="leading" constant="8" id="AuG-bB-bLQ"/>
                                                 <constraint firstItem="80E-Se-Uf3" firstAttribute="leading" secondItem="oV9-Nq-JgU" secondAttribute="leading" constant="8" id="OdS-Sc-WfI"/>
                                                 <constraint firstItem="OrW-1t-xFo" firstAttribute="top" secondItem="oV9-Nq-JgU" secondAttribute="top" constant="8" id="R5Y-Ur-035"/>
                                                 <constraint firstAttribute="bottom" secondItem="80E-Se-Uf3" secondAttribute="bottom" constant="8" id="dpg-MX-lvY"/>
                                                 <constraint firstItem="7yQ-vs-BUc" firstAttribute="top" secondItem="oV9-Nq-JgU" secondAttribute="top" constant="8" id="ern-iV-i1o"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="80E-Se-Uf3" secondAttribute="trailing" constant="20" symbolic="YES" id="nsy-wd-AtM"/>
                                                 <constraint firstAttribute="trailing" secondItem="OrW-1t-xFo" secondAttribute="trailing" constant="8" id="obB-qL-PII"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>

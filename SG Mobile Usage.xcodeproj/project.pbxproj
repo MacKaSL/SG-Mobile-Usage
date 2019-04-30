@@ -433,7 +433,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile UsageUITests/Pods-SG Mobile UsageUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SG Mobile UsageUITests/Pods-SG Mobile UsageUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -448,7 +448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile UsageUITests/Pods-SG Mobile UsageUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SG Mobile UsageUITests/Pods-SG Mobile UsageUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		315A28FAF921054470564097 /* [CP] Embed Pods Frameworks */ = {
@@ -459,7 +459,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile Usage/Pods-SG Mobile Usage-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SG Mobile Usage/Pods-SG Mobile Usage-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -474,7 +474,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile Usage/Pods-SG Mobile Usage-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SG Mobile Usage/Pods-SG Mobile Usage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D88F87A5B3D07BB7F271EDF /* [CP] Embed Pods Frameworks */ = {
@@ -485,7 +485,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile UsageTests/Pods-SG Mobile UsageTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SG Mobile UsageTests/Pods-SG Mobile UsageTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -500,7 +500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SG Mobile UsageTests/Pods-SG Mobile UsageTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SG Mobile UsageTests/Pods-SG Mobile UsageTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		99FB46BCCA8CE7BF5A748D3C /* [CP] Check Pods Manifest.lock */ = {
